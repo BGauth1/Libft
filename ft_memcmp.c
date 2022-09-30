@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 10:39:32 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/29 17:06:18 by gbertet          ###   ########.fr       */
+/*   Created: 2022/09/29 15:00:42 by gbertet           #+#    #+#             */
+/*   Updated: 2022/09/29 17:34:56 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	const unsigned char	*buff_s1;
+	const unsigned char	*buff_s2;
+	size_t				i;
 
+	buff_s1 = (const unsigned char *)s1;
+	buff_s2 = (const unsigned char *)s2;
 	i = 0;
-	j = 0;
-	if (little[0] == '\0')
-		return ((char *)big);
-	while (big[j] != '\0')
+	while (i < n)
 	{
-		i = 0;
-		while ((big[i + j] == little[i]) && (j + ft_strlen(little) <= len))
-		{
-			if (little[i + 1] == '\0')
-				return ((char *)&big[j]);
-			i++;
-		}
-		j++;
+		if (*buff_s1 != *buff_s2)
+			return (buff_s1 - buff_s2);
+		buff_s1++;
+		buff_s2++;
+		i++;
 	}
-	return (NULL);
+	return (0);
 }

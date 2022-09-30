@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 13:17:06 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/27 16:13:55 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/09/29 16:00:35 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	result = NULL;
 	while (*buff != 0)
 	{
-		if (*buff == c)
+		if (*buff == (char)c)
 			result = buff;
 		buff++;
 	}
-	if (*buff == c)
+	if (*buff == (char)c)
 		return (buff);
-	return (NULL);
+	return (result);
 }

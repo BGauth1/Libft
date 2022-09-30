@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 10:39:32 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/29 17:06:18 by gbertet          ###   ########.fr       */
+/*   Created: 2022/09/29 17:30:44 by gbertet           #+#    #+#             */
+/*   Updated: 2022/09/29 17:34:38 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
-	size_t	j;
+	char	*res;
 
-	i = 0;
-	j = 0;
-	if (little[0] == '\0')
-		return ((char *)big);
-	while (big[j] != '\0')
-	{
-		i = 0;
-		while ((big[i + j] == little[i]) && (j + ft_strlen(little) <= len))
-		{
-			if (little[i + 1] == '\0')
-				return ((char *)&big[j]);
-			i++;
-		}
-		j++;
-	}
-	return (NULL);
+	res = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	ft_strlcpy(res, s, ft_strlen(s) + 1);
+	return (res);
 }
