@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:23:53 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/29 16:38:36 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/09/30 16:05:49 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	j;
 
+	if (size < 1)
+		return (size + ft_strlen(src));
 	buff = (char *)src;
 	i = 0;
 	j = ft_strlen(dst);

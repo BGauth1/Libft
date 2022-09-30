@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:21:31 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/29 11:23:27 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/09/30 16:19:13 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,11 @@ int	ft_atoi(const char *s)
 		|| s[i] == '\v' || s[i] == '\f' || s[i] == '\r')
 		i++;
 	if (s[i] == '-' || s[i] == '+')
-	{
-		if (s[i] == '-')
+		if (s[i++] == '-')
 			neg = -1;
-		i++;
-	}
 	while (ft_isdigit(s[i]))
 	{
-		result *= 10;
-		result += s[i] - '0';
+		result = result * 10 + s[i] - '0';
 		i++;
 	}
 	return (result * neg);

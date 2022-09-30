@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:49:58 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/29 15:00:02 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/09/30 15:46:09 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char	*buff_src;
 
 	i = 0;
+	if (!src && !dest)
+		return (dest);
 	buff_dest = (char *)dest;
 	buff_src = (char *)src;
 	while (i < n)

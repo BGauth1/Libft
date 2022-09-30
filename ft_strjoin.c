@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 11:49:58 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/30 15:48:00 by gbertet          ###   ########.fr       */
+/*   Created: 2022/09/30 14:41:26 by gbertet           #+#    #+#             */
+/*   Updated: 2022/09/30 16:31:02 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	unsigned char	*bdest;
-	unsigned char	*bsrc;
+	size_t		i;
+	size_t		len;
+	char		*result;
 
-	if (!dest && !src)
-		return (dest);
-	bdest = (unsigned char *)dest;
-	bsrc = (unsigned char *)src;
-	if ((const void *)dest < src)
-		return (ft_memcpy(dest, src, n));
-	while (n > 0)
+	if (!s1 || !s2)
+		return (NULL);
+	i = 0;
+	len = ft_strlen(s1) + ft_strlen(s2);
+	result = malloc((len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	while (i < ft_strlen(s1))
 	{
-		bdest[n - 1] = bsrc[n - 1];
-		n--;
+		result[i] = s1[i];
+		i++;
 	}
-	return (dest);
+	while (i - ft_strlen(s1) < ft_strlen(s2))
+	{
+		result[i] = s2[i - ft_strlen(s1)];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
 }
