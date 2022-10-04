@@ -6,7 +6,7 @@
 #    By: pasyrot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 20:09:09 by pasyrot           #+#    #+#              #
-#    Updated: 2022/09/30 16:39:30 by gbertet          ###   ########.fr        #
+#    Updated: 2022/10/04 23:51:33 by gbertet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,9 @@ DOTC = ft_isalpha.c \
 	ft_calloc.c \
 	ft_strdup.c \
 	ft_substr.c \
-	ft_strjoin.c
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_split.c
 
 DOTO = $(notdir $(DOTC:.c=.o))
 
