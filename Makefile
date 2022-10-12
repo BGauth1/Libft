@@ -6,13 +6,13 @@
 #    By: pasyrot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 20:09:09 by pasyrot           #+#    #+#              #
-#    Updated: 2022/10/05 02:19:16 by gbertet          ###   ########.fr        #
+#    Updated: 2022/10/12 18:09:01 by gbertet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-DOTC = ft_isalpha.c \
+SRC = ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
@@ -46,29 +46,48 @@ DOTC = ft_isalpha.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
-	ft_lstnew.c
 
-DOTO = $(notdir $(DOTC:.c=.o))
+SRCBONUS = ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
 
-FLAGS = -Werror -Wall -Wextra -g
+ifdef BONUS
+	SRC += SRCBONUS
+endif
+
+OBJ = $(notdir $(SRC:.c=.o))
+
+OBJBONUS = $(notdir $(SRCBONUS:.c=.o))
+
+CFLAGS = -Werror -Wall -Wextra -g
 CC = gcc
 all : $(NAME)
 
-$(NAME) : $(DOTO)
-	ar -rc $(NAME) $(DOTO)
+$(NAME) : $(OBJ)
+	ar -rc $(NAME) $(OBJ)
+
+bonus : $(OBJBONUS)
+	ar -rc $(NAME) $(OBJBONUS)
 
 %.o : %.c
 	$(CC) -c $(FLAGS) -o $@ $^
 
 clean :
-	/bin/rm $(DOTO)
+	rm -rf $(OBJ) $(OBJBONUS)
 
 fclean : clean
-	/bin/rm $(NAME)
+	rm -rf $(NAME)
 
 re : fclean all
 
 so:
-	$(CC) -nostartfiles -fPIC $(FLAGS) $(DOTC)
-	gcc -nostartfiles -shared -o libft.so $(DOTO)
+	$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
 .PHONY: all clean fclean re
