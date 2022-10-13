@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:37:49 by gbertet           #+#    #+#             */
-/*   Updated: 2022/10/05 00:11:34 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/10/13 17:41:10 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ void	ft_tostr(char **res, char *buff, char c, int nb_word)
 		res[i] = malloc((word_size + 1) * sizeof(char));
 		while (j < word_size)
 		{
-			res[i][j++] = *buff++;
+			res[i][j] = *buff;
+			j++;
+			*buff++;
 		}
 		res[i][j] = '\0';
 		i++;

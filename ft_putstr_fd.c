@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 01:15:55 by gbertet           #+#    #+#             */
-/*   Updated: 2022/10/05 02:00:18 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/10/13 17:39:43 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	int	len;
+
+	len = ft_strlen(s);
+	write(fd, s, len);
 }

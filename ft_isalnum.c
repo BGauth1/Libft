@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:28:29 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/26 11:29:48 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/10/13 17:17:33 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
+	int	isalpha;
+	int	isdigit;
+
+	isalpha = ft_isalpha(c);
+	isdigit = ft_isdigit(c);
+	if (isalpha || isdigit)
 		return (1);
 	return (0);
 }

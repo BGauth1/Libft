@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 00:15:23 by gbertet           #+#    #+#             */
-/*   Updated: 2022/10/05 00:56:52 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/10/13 17:28:23 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,18 @@ int	ft_int_size(int n)
 		n /= 10;
 		int_size++;
 	}
-	return (int_size + minus);
+	int_size += minus;
+	return (int_size);
+}
+
+void	ft_stritoa(char *res, int int_size, int n)
+{
+	while (n != 0)
+	{
+		int_size--;
+		res[int_size] = n % 10 + '0';
+		n /= 10;
+	}
 }
 
 char	*ft_itoa(int n)
@@ -50,10 +61,6 @@ char	*ft_itoa(int n)
 		res[0] = '-';
 		n *= -1;
 	}
-	while (n != 0)
-	{
-		res[--int_size] = n % 10 + '0';
-		n /= 10;
-	}
+	ft_stritoa(res, int_size, n);
 	return (res);
 }

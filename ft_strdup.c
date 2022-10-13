@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:30:44 by gbertet           #+#    #+#             */
-/*   Updated: 2022/09/30 16:25:51 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/10/13 17:42:48 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 char	*ft_strdup(const char *s)
 {
 	char	*res;
+	int		len;
 
-	res = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	len = ft_strlen(s);
+	res = ft_calloc(len + 1, sizeof(char));
 	if (!res)
 		return (NULL);
-	ft_strlcpy(res, s, ft_strlen(s) + 1);
+	ft_strlcpy(res, s, len + 1);
 	return (res);
 }
