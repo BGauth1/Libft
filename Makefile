@@ -6,7 +6,7 @@
 #    By: gbertet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 20:09:09 by gbertet           #+#    #+#              #
-#    Updated: 2022/10/12 18:09:01 by gbertet          ###   ########.fr        #
+#    Updated: 2023/01/17 15:29:50 by gbertet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,11 @@ SRC = ft_isalpha.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
+	ft_realloc.c \
+	get_next_line.c \
+	ft_printf.c \
+	ft_putnbr_base.c \
+	ft_putstuff.c
 
 SRCBONUS = ft_lstnew.c \
 		ft_lstadd_front.c \
@@ -58,7 +63,7 @@ SRCBONUS = ft_lstnew.c \
 		ft_lstmap.c \
 
 ifdef BONUS
-	SRC += SRCBONUS
+	SRC += ${SRCBONUS}
 endif
 
 OBJ = $(notdir $(SRC:.c=.o))
@@ -72,11 +77,11 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	ar -rc $(NAME) $(OBJ)
 
-bonus : $(OBJBONUS)
-	ar -rc $(NAME) $(OBJBONUS)
+bonus :
+	@make BONUS=1
 
 %.o : %.c
-	$(CC) -c $(FLAGS) -o $@ $^
+	$(CC) -c $(CFLAGS) -o $@ $^
 
 clean :
 	rm -rf $(OBJ) $(OBJBONUS)
@@ -87,7 +92,7 @@ fclean : clean
 re : fclean all
 
 so:
-	$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJBONUS)
 
 .PHONY: all clean fclean re

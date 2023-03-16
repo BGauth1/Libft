@@ -6,7 +6,7 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 01:15:55 by gbertet           #+#    #+#             */
-/*   Updated: 2022/10/13 17:38:13 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/10/18 13:34:44 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	len;
 
+	if (!s)
+		return ;
 	len = ft_strlen(s);
 	write(fd, s, len);
 	write(fd, "\n", 1);

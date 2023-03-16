@@ -6,13 +6,13 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:48:57 by gbertet           #+#    #+#             */
-/*   Updated: 2022/10/13 18:35:24 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/10/18 16:34:57 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_check_set(const char c, const char *set)
+static int	ft_check_set(const char c, const char *set)
 {
 	int	i;
 
@@ -26,14 +26,14 @@ int	ft_check_set(const char c, const char *set)
 	return (0);
 }
 
-void	ft_trim(char *res, const char *s, int *i, int *start_trim)
+static void	ft_trim(char *res, const char *s, int *i, int *start_trim)
 {
 	res[*i] = s[*start_trim];
 	*i = *i + 1;
 	*start_trim = *start_trim + 1;
 }
 
-void	ft_start_trim(const char *s, const char *set,
+static void	ft_start_trim(const char *s, const char *set,
 					int *start_trim, int end_trim)
 {
 	int	check_set;
@@ -46,7 +46,7 @@ void	ft_start_trim(const char *s, const char *set,
 	}
 }
 
-void	ft_end_trim(const char *s, const char *set,
+static void	ft_end_trim(const char *s, const char *set,
 					int start_trim, int *end_trim)
 {
 	int	check_set;
@@ -67,6 +67,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 	int		i;
 	int		check_set;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	start_trim = 0;
 	end_trim = ft_strlen(s1);

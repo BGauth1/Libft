@@ -6,13 +6,13 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 00:15:23 by gbertet           #+#    #+#             */
-/*   Updated: 2022/10/13 17:28:23 by gbertet          ###   ########.fr       */
+/*   Updated: 2022/10/18 16:29:31 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_int_size(int n)
+static int	ft_int_size(int n)
 {
 	int	int_size;
 	int	minus;
@@ -30,7 +30,7 @@ int	ft_int_size(int n)
 	return (int_size);
 }
 
-void	ft_stritoa(char *res, int int_size, int n)
+static void	ft_stritoa(char *res, int int_size, int n)
 {
 	while (n != 0)
 	{

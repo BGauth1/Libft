@@ -6,16 +6,22 @@
 /*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:14:33 by gbertet           #+#    #+#             */
-/*   Updated: 2022/10/12 18:11:58 by gbertet          ###   ########.fr       */
+/*   Updated: 2023/03/16 14:59:54 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+# include <stdarg.h>
+# include <stddef.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -67,5 +73,16 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstlast(t_list *lst);
+
+void	*ft_realloc(void *ptr, size_t oldlen, size_t newlen);
+char	*get_next_line(int fd);
+
+int	ft_printf(const char *s, ...);
+int	ft_putchar(char c);
+int	ft_putnbr(int n);
+int	ft_putunbr(unsigned int n);
+int	ft_putstr(char *s);
+int	ft_putnbr_base(unsigned int nbr, const char *base);
+int	ft_putptr_base(void *ptr, const char *base);
 
 #endif
