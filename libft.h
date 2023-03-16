@@ -77,12 +77,12 @@ t_list	*ft_lstlast(t_list *lst);
 void	*ft_realloc(void *ptr, size_t oldlen, size_t newlen);
 char	*get_next_line(int fd);
 
-int	ft_printf(const char *s, ...);
-int	ft_putchar(char c);
-int	ft_putnbr(int n);
-int	ft_putunbr(unsigned int n);
-int	ft_putstr(char *s);
-int	ft_putnbr_base(unsigned int nbr, const char *base);
-int	ft_putptr_base(void *ptr, const char *base);
+int		ft_printf(const char *s, ...);
+int		ft_putchar(char c);
+int		ft_putnbr(int n);
+int		ft_putunbr(unsigned int n);
+int		ft_putstr(char *s);
+int		ft_putnbr_base(unsigned int nbr, const char *base);
+int		ft_putptr_base(void *ptr, const char *base);
 
 #endif
