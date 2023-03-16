@@ -12,16 +12,6 @@
 
 #include "libft.h"
 
-// t_size	ft_strlen(const char *s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
-
 int	ft_putnbr_base(unsigned int nbr, const char *base)
 {
 	unsigned int	base_nb;
