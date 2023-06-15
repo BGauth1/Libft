@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gbertet <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 20:09:09 by gbertet           #+#    #+#              #
-#    Updated: 2023/01/17 15:29:50 by gbertet          ###   ########.fr        #
+#    Updated: 2023/06/15 15:01:34 by gbertet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = ft_isalpha.c \
 	ft_isalnum.c \
 	ft_isascii.c \
 	ft_isprint.c \
+	ft_isspace.c \
 	ft_strlen.c \
 	ft_memset.c \
 	ft_memcpy.c \
@@ -70,8 +71,8 @@ OBJ = $(notdir $(SRC:.c=.o))
 
 OBJBONUS = $(notdir $(SRCBONUS:.c=.o))
 
-CFLAGS = -Werror -Wall -Wextra -g
-CC = gcc
+CFLAGS = -Werror -Wall -Wextra
+CC = clang
 all : $(NAME)
 
 $(NAME) : $(OBJ)

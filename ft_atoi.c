@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbertet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:21:31 by gbertet           #+#    #+#             */
-/*   Updated: 2022/10/13 17:14:50 by gbertet          ###   ########.fr       */
+/*   Updated: 2023/04/19 17:29:14 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *s)
+int	ft_atoi(const char *s, int *err)
 {
-	int	result;
-	int	neg;
-	int	i;
+	long long	result;
+	int			neg;
+	int			i;
 
 	result = 0;
 	neg = 1;
 	i = 0;
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'
-		|| s[i] == '\v' || s[i] == '\f' || s[i] == '\r')
+	while (ft_isspace(s[i]))
 		i++;
 	if (s[i] == '-' || s[i] == '+')
 	{
@@ -30,11 +29,13 @@ int	ft_atoi(const char *s)
 			neg = -1;
 		i++;
 	}
-	while (ft_isdigit(s[i]))
+	while (s[i] >= '0' && s[i] <= '9')
 	{
 		result = result * 10 + s[i] - '0';
+		if (result * neg > 2147483647 || result * neg < -2147483648)
+			*err = -42;
 		i++;
 	}
 	result *= neg;
-	return (result);
+	return ((int)result);
 }
