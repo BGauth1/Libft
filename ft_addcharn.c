@@ -6,22 +6,22 @@
 /*   By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:11:57 by gbertet           #+#    #+#             */
-/*   Updated: 2023/07/10 17:59:57 by gbertet          ###   ########.fr       */
+/*   Updated: 2023/07/10 18:37:47 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_addcharn(char *s, char c, int n)
+char	*ft_addcharn(char *s, char c, int n)
 {
 	int	i;
 
 	i = ft_strlen(s);
 	if (!i)
-		return ;
+		return (s);
 	s = ft_realloc(s, i, i + 1);
 	if (!s)
-		return ;
+		return (s);
 	s[i + 1] = '\0';
 	while (i != n)
 	{
@@ -29,4 +29,5 @@ void    ft_addcharn(char *s, char c, int n)
 		i--;
 	}
 	s[n] = c;
+	return (s);
 }

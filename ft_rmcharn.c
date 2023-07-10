@@ -6,7 +6,7 @@
 /*   By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:15:37 by gbertet           #+#    #+#             */
-/*   Updated: 2023/07/10 18:01:11 by gbertet          ###   ########.fr       */
+/*   Updated: 2023/07/10 18:41:25 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ void	ft_rmcharn(char *s, int n)
 {
 	if (!s)
 		return ;
+	if (n >= (int)ft_strlen(s) || n < 0)
+		return ;
 	while (s[n])
 	{
 		s[n] = s[n + 1];
-			n++;
+		n++;
 	}
 }

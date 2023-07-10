@@ -6,7 +6,7 @@
 #    By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 20:09:09 by gbertet           #+#    #+#              #
-#    Updated: 2023/07/10 18:04:37 by gbertet          ###   ########.fr        #
+#    Updated: 2023/07/10 18:46:03 by gbertet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,6 @@ SRC = ft_isalpha.c \
 	ft_lstmap.c \
 	ft_betweenchar.c \
 	ft_strstrlen.c \
-	ft_iswhitespace.c \
 	ft_strstrdup.c \
 	ft_freestr.c \
 	ft_freestrn.c \

@@ -6,10 +6,9 @@
 /*   By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/07/10 18:03:26 by gbertet          ###   ########.fr       */
+/*   Updated: 2023/07/10 18:53:33 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -33,8 +32,7 @@ int		ft_isprint(int c);
 int		ft_isspace(char c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-int		ft_iswhitespace(char c);
-int		ft_betweenchar(const char *s, int pos, char cquote);
+int		ft_betweenchar(const char *s, int n, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *s, int *err);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -66,9 +64,10 @@ void	*ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_freestr(char **s);
 void	ft_freestrn(char **s, int n);
-void    ft_addcharn(char *s, char c, int n);
+char	*ft_addcharn(char *s, char c, int n);
 void	ft_rmcharn(char *s, int n);
 void	ft_rmchar(char *s, char c);
+int		ft_printf(const char *s, ...);
 
 typedef struct s_list
 {
