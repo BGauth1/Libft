@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gbertet <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 20:09:09 by gbertet           #+#    #+#              #
-#    Updated: 2023/01/17 15:29:50 by gbertet          ###   ########.fr        #
+#    Updated: 2023/07/10 17:55:07 by gbertet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,41 +50,40 @@ SRC = ft_isalpha.c \
 	get_next_line.c \
 	ft_printf.c \
 	ft_putnbr_base.c \
-	ft_putstuff.c
-
-SRCBONUS = ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
-
-ifdef BONUS
-	SRC += ${SRCBONUS}
-endif
+	ft_putstuff.c \
+	ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c \
+	ft_betweenchar.c \
+	ft_strstrlen.c \
+	ft_iswhitespace.c \
+	ft_strstrdup.c \
+	ft_freestr.c \
+	ft_freestrn.c \
+	ft_addcharn.c \
+	ft_rmchar.c \
+	ft_rmcharn.c \
 
 OBJ = $(notdir $(SRC:.c=.o))
 
-OBJBONUS = $(notdir $(SRCBONUS:.c=.o))
-
 CFLAGS = -Werror -Wall -Wextra -g
-CC = gcc
+CC = clang
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	ar -rc $(NAME) $(OBJ)
 
-bonus :
-	@make BONUS=1
-
 %.o : %.c
 	$(CC) -c $(CFLAGS) -o $@ $^
 
 clean :
-	rm -rf $(OBJ) $(OBJBONUS)
+	rm -rf $(OBJ)
 
 fclean : clean
 	rm -rf $(NAME)
@@ -93,6 +92,6 @@ re : fclean all
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJBONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 .PHONY: all clean fclean re
