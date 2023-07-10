@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 11:14:33 by gbertet           #+#    #+#             */
-/*   Updated: 2023/07/10 17:57:16 by gbertet          ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2023/07/10 18:03:26 by gbertet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -22,18 +23,20 @@
 # include <fcntl.h>
 # include <stdarg.h>
 # include <stddef.h>
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_isspace(char c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_iswhitespace(char c);
 int		ft_betweenchar(const char *s, int pos, char cquote);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_atoi(const char *s);
+int		ft_atoi(const char *s, int *err);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);

@@ -6,7 +6,7 @@
 #    By: gbertet <gbertet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 20:09:09 by gbertet           #+#    #+#              #
-#    Updated: 2023/07/10 17:55:07 by gbertet          ###   ########.fr        #
+#    Updated: 2023/07/10 18:04:37 by gbertet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = ft_isalpha.c \
 	ft_isalnum.c \
 	ft_isascii.c \
 	ft_isprint.c \
+	ft_isspace.c \
 	ft_strlen.c \
 	ft_memset.c \
 	ft_memcpy.c \
